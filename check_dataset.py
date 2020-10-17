@@ -66,7 +66,21 @@ for i in range(150001,160001):
     s_path_txt=s+str(i)+".txt"
     dest1 = shutil.move(s_path, d)
     dest2 = shutil.move(s_path_txt, d)
+    
+  
+import cv2,glob,shutil,os,random
+f_list=["1.Empty category","2.Low category","3.Medium Traffic","4.High traffic"]
+source_path="D:\params_datasets\cleaned_data_4_folders\\new_automated_folders\\traffic_dataset_cleaned\\"
+des_path="D:\params_datasets\cleaned_data_4_folders\\new_automated_folders\\traffic_dataset_cleaned\\validation\\"
 
+for j in range(len(f_list)):
+    files=os.listdir(source_path+f_list[j])
+    random.shuffle(files)
+    print(j)
+    for i in range(0,5000):
+        s=source_path+f_list[j]+"\\"+files[i]
+        d=des_path+f_list[j]+"\\"
+        m=shutil.move(s,d)
 
 import cv2,glob
 for j in range(12):
